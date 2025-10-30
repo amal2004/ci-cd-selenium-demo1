@@ -20,14 +20,9 @@ public class NopcomTest {
 
     @BeforeClass
     public void setup() {
-    	//System.setProperty("webdriver.chrome.driver", "C:\\Users\\amalw\\eclipse-workspace\\autm.ci-cd\\src\\test\\resources\\chromedriver.exe");
-    	String driverPath = Paths.get("src", "test", "resources", "chromedriver.exe").toAbsolutePath().toString();
-    	System.setProperty("webdriver.chrome.driver", driverPath);
-    	
-    	ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));   
+       WebDriverManager.chromedriver().setup();
+       driver = new ChromeDriver();
+       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));   
     }
     
  
